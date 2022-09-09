@@ -41,7 +41,6 @@ DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 BOARD_VENDOR_PLATFORM := xiaomi-sdm660
 
 # Releasetools
-TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_lavender
 TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)
 
 # Vendor Security patch level
