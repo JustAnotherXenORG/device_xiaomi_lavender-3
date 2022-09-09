@@ -18,6 +18,10 @@ BOARD_AVB_RECOVERY_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
 BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 1
 BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flags 3
 
+# Board
+BOARD_VENDOR_PLATFORM := xiaomi-sdm660
+TARGET_BOARD_PLATFORM := sdm660
+
 # Device Path
 DEVICE_PATH := device/xiaomi/lavender
 
@@ -35,10 +39,7 @@ BOARD_KERNEL_CMDLINE += skip_initramfs rootwait ro init=/init
 TARGET_KERNEL_CONFIG := lavender_defconfig
 
 # Manifest
-DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
-
-# Platform
-BOARD_VENDOR_PLATFORM := xiaomi-sdm660
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/configs/vintf/manifest.xml
 
 # Releasetools
 TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)
