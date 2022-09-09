@@ -29,26 +29,23 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_p.mk)
 # Inherit device configuration
 $(call inherit-product, device/xiaomi/lavender/device.mk)
 
-# Inherit some common revengeos stuff.
-$(call inherit-product, vendor/revengeos/config/common.mk)
-TARGET_BOOT_ANIMATION_RES := 1080
-REVENGEOS_BUILDTYPE := OFFICIAL
-TARGET_FACE_UNLOCK_SUPPORTED := true
+# Inherit some common 404 stuff
+$(call inherit-product, vendor/404/configs/common.mk)
 
-# Build Fingerprint
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    TARGET_DEVICE="lavender" \
-    PRODUCT_NAME="lavender" \
-    PRIVATE_BUILD_DESC="lavender-user 10 QKQ1.190910.002 V11.0.1.0.QFGMIXM release-keys" 
-
-# Device identifier
-PRODUCT_NAME := revengeos_lavender
+# Common Device Propeties
+PRODUCT_NAME := p404_lavender
+TARGET_VENDOR_PRODUCT_NAME := lavender
 PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_PLATFORM := SDM660
 PRODUCT_DEVICE := lavender
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := Redmi Note 7
-
 TARGET_VENDOR_PRODUCT_NAME := lavender
-
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
+
+# Build type
+ifeq ($(WITH_GAPPS),true)
+P404_BUILDTYPE := Tokui-GAPPS
+else
+P404_BUILDTYPE := Tokui-VANILLA
+endif
