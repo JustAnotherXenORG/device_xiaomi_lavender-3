@@ -38,9 +38,6 @@ BOARD_KERNEL_CMDLINE += skip_initramfs rootwait ro init=/init
 # Kernel
 TARGET_KERNEL_CONFIG := lavender_defconfig
 
-# Manifest
-DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/configs/vintf/manifest.xml
-
 # Releasetools
 TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)
 
