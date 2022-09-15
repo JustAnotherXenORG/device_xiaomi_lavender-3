@@ -13,42 +13,28 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-#
-# This file sets variables that control the way modules are built
-# thorughout the system. It should not be used to conditionally
-# disable makefiles (the proper mechanism to control what gets
-# included in a build is to use PRODUCT_PACKAGES in a product
-# definition file).
-#
-
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_p.mk)
 
-# Inherit device configuration
+# Inherit device specific makefile
 $(call inherit-product, device/xiaomi/lavender/device.mk)
 
-# Inherit some common revengeos stuff.
-$(call inherit-product, vendor/revengeos/config/common.mk)
-TARGET_BOOT_ANIMATION_RES := 1080
-REVENGEOS_BUILDTYPE := OFFICIAL
-TARGET_FACE_UNLOCK_SUPPORTED := true
-
-# Build Fingerprint
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    TARGET_DEVICE="lavender" \
-    PRODUCT_NAME="lavender" \
-    PRIVATE_BUILD_DESC="lavender-user 10 QKQ1.190910.002 V11.0.1.0.QFGMIXM release-keys" 
+# Inherit custom AwakenOS vendor configuration
+$(call inherit-product, vendor/awaken/config/common_full_phone.mk)
 
 # Device identifier
-PRODUCT_NAME := revengeos_lavender
+PRODUCT_NAME := awaken_lavender
 PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_PLATFORM := SDM660
 PRODUCT_DEVICE := lavender
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := Redmi Note 7
-
 TARGET_VENDOR_PRODUCT_NAME := lavender
-
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
+
+# some things
+USE_PIXEL_CHARGER := true
+TARGET_SUPPORTS_QUICK_TAP := true
+
