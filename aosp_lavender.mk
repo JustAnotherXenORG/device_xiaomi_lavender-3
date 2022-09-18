@@ -21,11 +21,11 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_p.mk)
 # Inherit device specific makefile
 $(call inherit-product, device/xiaomi/lavender/device.mk)
 
-# Inherit custom AwakenOS vendor configuration
-$(call inherit-product, vendor/awaken/config/common_full_phone.mk)
+# Inherit some common Proton stuff
+$(call inherit-product, vendor/proton/config/common.mk)
 
 # Device identifier
-PRODUCT_NAME := awaken_lavender
+PRODUCT_NAME := aosp_lavender
 PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_PLATFORM := SDM660
 PRODUCT_DEVICE := lavender
@@ -33,8 +33,4 @@ PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := Redmi Note 7
 TARGET_VENDOR_PRODUCT_NAME := lavender
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
-
-# some things
-USE_PIXEL_CHARGER := true
-TARGET_SUPPORTS_QUICK_TAP := true
 
